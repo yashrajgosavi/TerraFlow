@@ -1,9 +1,6 @@
 name: Plan Infra
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       provider:
