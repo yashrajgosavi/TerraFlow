@@ -82,6 +82,6 @@ jobs:
 
       - name: Cleanup Repository
         run: |
-          if [ -d "/Users/automationhq/ahq/actions-runner/_work/TerraFlow/*" ]; then
-            rm -rf /Users/automationhq/ahq/actions-runner/_work/TerraFlow/*
+          if [ -d "/home/nurayokai/actions-runner/_work/TerraFlow/*" ]; then
+            rm -rf /home/nurayokai/actions-runner/_work/TerraFlow/*
           fi
