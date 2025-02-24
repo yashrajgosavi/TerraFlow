@@ -24,32 +24,50 @@ Terraform simplifies infrastructure management, but deploying to multiple platfo
 ### Basic Terraform Commands  
 Here are the fundamental Terraform commands I have learned so far:  
 
-1️⃣ **Initialize Terraform**  
+**Initialize Terraform**  
 ```bash
 terraform init
 ```  
 This command initializes the Terraform working directory, downloads required provider plugins, and sets up the backend configuration.  
 
-2️⃣ **Plan Infrastructure Changes**  
+**Plan Infrastructure Changes**  
 ```bash
 terraform plan
 ```  
 Generates an execution plan, showing what changes Terraform will make before applying them.  
 
-3️⃣ **Apply Changes**  
+**Apply Changes**  
 ```bash
 terraform apply
 ```  
 Executes the planned changes and provisions the resources.  
 
-4️⃣ **Destroy Infrastructure**  
+**Destroy Infrastructure**  
 ```bash
 terraform destroy
 ```  
 Removes all resources defined in the Terraform configuration.  
 
-5️⃣ **Destroy a Specific Resource**  
+**Destroy a Specific Resource**  
 ```bash
 terraform destroy -target resource_type.resource_name
 ```  
-Deletes a specific resource without affecting the rest of the infrastructure.  
+Deletes a specific resource without affecting the rest of the infrastructure.
+
+**Format Terraform Code**  
+```bash
+terraform fmt
+```  
+Formats the Terraform configuration files according to best practices.  
+
+**Check Formatting**  
+```bash
+terraform fmt -check
+```  
+Checks if the Terraform files are properly formatted. If not, the command exits with a non-zero status.  
+
+**Validate Configuration**  
+```bash
+terraform validate
+```  
+Validates the Terraform configuration files to ensure there are no syntax errors or invalid references.  
