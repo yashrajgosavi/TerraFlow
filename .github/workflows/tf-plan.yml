@@ -1,7 +1,20 @@
 name: Plan Infra
 
-on: 
+on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
+    inputs:
+      provider:
+        description: Select provider
+        required: true
+        type: choice
+        default: "kubernetes"
+        options:
+          - "kubernetes"
+          - "aws"
+          - "azure"
 
 jobs:
   tf_fmt:
@@ -17,7 +30,9 @@ jobs:
 
       - name: Terraform fmt
         id: fmt
-        run: terraform fmt -check
+        run: |
+          cd ${{ inputs.provider }}
+          terraform fmt -check
 
   tf_validate:
     name: Terraform validate
@@ -33,11 +48,15 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: |
+          cd ${{ inputs.provider }}
+          terraform init
 
       - name: Terraform Validate
         id: validate
-        run: terraform validate
+        run: |
+          cd ${{ inputs.provider }}
+          terraform validate
 
   tf_plan:
     name: Terraform Plan
@@ -54,11 +73,15 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: |
+          cd ${{ inputs.provider }}
+          terraform init
 
       - name: Terraform Plan
         id: plan
-        run: terraform plan
+        run: |
+          cd ${{ inputs.provider }}
+          terraform plan
 
       - name: Cleanup Repository
         run: |
