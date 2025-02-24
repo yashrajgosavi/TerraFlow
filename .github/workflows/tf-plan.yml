@@ -41,7 +41,7 @@ jobs:
 
   tf_plan:
     name: Terraform Plan
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, wsl-dell-vostro]
     needs: [tf_fmt,tf_validate]
 
     steps:
