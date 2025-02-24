@@ -79,9 +79,3 @@ jobs:
         run: |
           cd ${{ inputs.provider }}
           terraform plan
-
-      - name: Cleanup Repository
-        run: |
-          if [ -d "/home/nurayokai/actions-runner/_work/TerraFlow/*" ]; then
-            rm -rf /home/nurayokai/actions-runner/_work/TerraFlow/*
-          fi
