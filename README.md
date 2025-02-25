@@ -71,3 +71,23 @@ Checks if the Terraform files are properly formatted. If not, the command exits 
 terraform validate
 ```  
 Validates the Terraform configuration files to ensure there are no syntax errors or invalid references.  
+
+**List All Resources in the State File**  
+```bash
+terraform state list
+```  
+Displays all resources that are currently managed by Terraform in the state file. This helps in checking what infrastructure has been deployed and is being tracked.  
+
+**Show Details of a Specific Resource**  
+```bash
+terraform state show resource_type.resource_name
+```  
+Shows detailed information about a specific resource in the Terraform state. This is useful for debugging and verifying resource properties such as IDs, configurations, and dependencies.  
+
+**Define and Output a Resource Value**  
+```hcl
+output "output-name" {
+  value = resource_type.resource_name.id
+}
+```  
+Terraform **outputs** allow users to extract and display resource attributes after deployment. This is commonly used to retrieve values like public IPs, resource IDs, or database endpoints.  
